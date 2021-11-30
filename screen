@@ -1,0 +1,24 @@
+import pygame
+import random
+
+if __name__ == '__main__':
+    pygame.init()
+    size = width, height = 800, 400
+    screen = pygame.display.set_mode(size)
+
+    running = True
+    while running:
+        screen.fill((0, 0, 0))
+        # внутри игрового цикла ещё один цикл
+        for i in range(10000):
+            screen.fill(pygame.Color('white'),
+                        (random.random() * width,
+                         random.random() * height, 1, 1))
+        for event in pygame.event.get():
+
+            # при закрытии окна
+            if event.type == pygame.QUIT:
+                running = False
+
+        pygame.display.flip()
+    pygame.quit()
